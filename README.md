@@ -32,6 +32,7 @@ Install Git SSH
 - Go to your Github user account account settings --> Click "SSH and CPG Keys" --> Click "New SSH Key" --> Paste your SSH Key
 
 Install Oh My ZSH ```bash sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
+
 Install pnpm ```bash npm i pnpm```
 
 ### 1. Clone the Repo
