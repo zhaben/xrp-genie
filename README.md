@@ -14,7 +14,7 @@ It supports three levels of complexity — from beginner-friendly devnet wallets
 
 | Mode | Description |
 |------|-------------|
-| 🟢 **Mode 1: XRPL Testnet** | Create and manage wallets using `xrpl.js` on the XRPL testnet. |
+| 🟢 **Mode 1: XRPL Devnet** | Create and manage wallets using `xrpl.js` on the XRPL devnet. |
 | 🔵 **Mode 2: Xaman Wallet** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing. |
 | 🟣 **Mode 3: Account Abstraction** | Uses Web3Auth to securely manage private keys via social login and MPC. No private key is ever stored or exposed directly — keys are reconstructed securely on the client using threshold cryptography. |
 
@@ -98,8 +98,8 @@ Visit: http://localhost:3000
 - 🧪 **Ready-to-use hooks** and components
 
   ## 🔧 Features by Mode
-  🟢 Mode 1: XRPL Testnet (Beginner)
-  - Connect to the XRPL Testnet using xrpl.js
+  🟢 Mode 1: XRPL Devnet (Beginner)
+  - Connect to the XRPL Devnet using xrpl.js
   - Generate non-custodial wallets locally
   - Fund wallets using XRPL faucet
   - View balance, transaction history
@@ -109,7 +109,7 @@ Visit: http://localhost:3000
   - Login with XUMM (Xaman Wallet) via QR code
   - Fetch XRPL account info securely
   - Prepare and push-sign transactions through user approval
-  - Works with both mainnet and testnet
+  - Works with both mainnet and devnet
 
   🟣 Mode 3: Account Abstraction (Advanced)
   - 🔐 Authenticate users via social login (Google, Apple, etc.) using Web3Auth
