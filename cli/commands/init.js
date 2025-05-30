@@ -19,6 +19,23 @@ async function initCommand(projectName = 'my-xrp-app') {
     }
   ]);
 
+  // Ask for network selection if Xaman mode is chosen
+  let network = 'testnet'; // default
+  if (answers.mode === 'xaman') {
+    const networkAnswer = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'network',
+        message: 'Choose XRPL network for Xaman integration:',
+        choices: [
+          { name: '🧪 Testnet - For development and testing', value: 'testnet' },
+          { name: '🌐 Mainnet - For production use', value: 'mainnet' }
+        ]
+      }
+    ]);
+    network = networkAnswer.network;
+  }
+
   const { mode } = answers;
   const projectPath = path.resolve(projectName);
 
@@ -50,6 +67,11 @@ async function initCommand(projectName = 'my-xrp-app') {
       const packageJson = await fs.readJson(packageJsonPath);
       packageJson.name = projectName;
       await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
+    }
+
+    // Configure network settings for Xaman mode
+    if (mode === 'xaman') {
+      await configureXamanNetwork(projectPath, network);
     }
 
     console.log('✅ Project scaffolded successfully!');
@@ -87,6 +109,38 @@ function getModeDescription(mode) {
     web3auth: 'Web3Auth Mode'
   };
   return descriptions[mode];
+}
+
+async function configureXamanNetwork(projectPath, network) {
+  const websocketUrl = network === 'mainnet' 
+    ? 'wss://xrplcluster.com'
+    : 'wss://s.altnet.rippletest.net:51233';
+  
+  // Update the account-info API route
+  const accountInfoPath = path.join(projectPath, 'app/api/xrpl/account-info/route.ts');
+  if (await fs.pathExists(accountInfoPath)) {
+    let content = await fs.readFile(accountInfoPath, 'utf8');
+    content = content.replace(
+      /const client = new Client\('.*?'\)/,
+      `const client = new Client('${websocketUrl}')`
+    );
+    content = content.replace(
+      /This account may not be activated yet on .*?\./,
+      `This account may not be activated yet on ${network}.`
+    );
+    await fs.writeFile(accountInfoPath, content);
+  }
+
+  // Update the hook error message
+  const hookPath = path.join(projectPath, 'hooks/useXamanWallet.ts');
+  if (await fs.pathExists(hookPath)) {
+    let content = await fs.readFile(hookPath, 'utf8');
+    content = content.replace(
+      /You need to receive at least 10 XRP to activate your account on .*?\./,
+      `You need to receive at least 10 XRP to activate your account on ${network}.`
+    );
+    await fs.writeFile(hookPath, content);
+  }
 }
 
 function showModeSpecificInstructions(mode) {
