@@ -45,8 +45,8 @@ Creat and save your API keys
 # .env.local
 
 # mode2
-NEXT_PUBLIC_XUMM_API_KEY=your_xumm_api_key
-NEXT_PUBLIC_XUMM_API_SECRET=your_xumm_api_secret
+XUMM_API_KEY=your_xumm_api_key
+XUMM_API_SECRET=your_xumm_api_secret
 
 # mode3
 WEB3AUTH_CLIENT_ID=your-web3auth-client-id
