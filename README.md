@@ -104,13 +104,16 @@ Visit: http://localhost:3000
 
 ## 🔒 Security Best Practices
 ❌ Never do this:
+
 Don’t hardcode private keys or API secrets in your codebase
 (e.g. const PRIVATE_KEY = "rXXXXXXXXXXXXXXXXXX")
 
+Don't commit .env.local to Git.
+
 ✅ Always do this:
+
 Store secrets in .env.local only, never in source code.
 
-❌ Never commit .env.local to Git.
 
 📦 What to include in .gitignore
 To prevent accidentally exposing secrets, make sure your .gitignore includes:
@@ -125,8 +128,8 @@ This keeps all environment-specific and secret config out of your Git history �
 
 ## 🛠️ Built With
 - **Next.js 15** - React framework with App Router [https://nextjs.org/docs/app]
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
+- **TypeScript** - Type-safe development [https://www.typescriptlang.org/]
+- **Tailwind CSS** - Utility-first styling [https://tailwindcss.com/]
 - **XRPL.js** - Official XRP Ledger library [https://xrpl.org/]
 - **XUMM SDK** - [https://xumm.readme.io/]
 - **Web3Auth** - [https://web3auth.io/docs/]
