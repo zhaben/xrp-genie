@@ -22,22 +22,33 @@ It supports three levels of complexity — from beginner-friendly devnet wallets
 
 ## 🚀 Quick Start
 
+### Set Up Your Dev Environment Properly The First Time
+Install Git SSH
+- Go to an empty terminal
+- Type: ```bash ssh-keygen```
+- Set your password
+- Type: ```bash cat /Users/yourusername/.ssh/id_ed25519.pub```
+- Copy your ssh key
+- Paste in your GitHub account Settings --> 
+
+Install Oh My ZSH ```bash sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
+
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/xrp-genie.git
+git clone https://github.com/yourusername/xrp-genie.git xrp-genie
 cd xrp-genie
 ```
 
 ### 2. Install Dependencies
 
 ```bash
-npm install
+pnpm install
 # or
-yarn install
+npm install
 ```
 
-### 3. Initialize Your Project
+### 3. Initialize Your Project (OR START HERE)
 Choose your mode
 ```bash
 # Generates a fully-typed TypeScript Next.js app
@@ -62,6 +73,11 @@ XUMM_API_SECRET=your_xumm_api_secret
 
 # mode3
 WEB3AUTH_CLIENT_ID=your-web3auth-client-id
+```
+
+### 4. Configure Environment
+```bash
+./cli/bin/xrp-genie init my-test-app
 ```
 
 ## 🧪 Run Locally
@@ -115,8 +131,7 @@ Don't commit .env.local to Git.
 Store secrets in .env.local only, never in source code.
 
 
-📦 What to include in .gitignore
-To prevent accidentally exposing secrets, make sure your .gitignore includes:
+📦 What to include in .gitignore to prevent accidentally exposing secrets:
 
 ```bash
 # Environment variables
@@ -133,7 +148,8 @@ This keeps all environment-specific and secret config out of your Git history �
 - **XRPL.js** - Official XRP Ledger library [https://xrpl.org/]
 - **XUMM SDK** - [https://xumm.readme.io/]
 - **Web3Auth** - [https://web3auth.io/docs/]
-
+- **pnpm** - [https://pnpm.io/]
+- **Oh My ZSH** - [https://ohmyz.sh/]
 
 ## 🧞 Contribution & Roadmap
 **xrp-genie** is designed to grow. 
