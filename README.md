@@ -72,7 +72,9 @@ Visit: http://localhost:3000
 
 ## 🔒 Security Best Practices
 Never store private keys in the browser.
-Use secure, encrypted key storage for Mode 3.
+
+Use secure, encrypted key storage for **Mode 3**.
+
 Protect .env.local — never commit it to Git.
 
 ## 📚 References
