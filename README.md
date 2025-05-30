@@ -22,7 +22,7 @@ It supports three levels of complexity — from beginner-friendly devnet wallets
 
 ## 🚀 Quick Start
 
-### Set Up Your Dev Environment Properly The First Time
+### Set Up Your Dev Environment Properly The First Time (Beginner Devs Only)
 Install Git SSH
 - Go to an empty terminal
 - Type: ```bash ssh-keygen```
@@ -36,7 +36,7 @@ Install Oh My ZSH ```bash sh -c "$(curl -fsSL https://raw.githubusercontent.com/
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/xrp-genie.git xrp-genie
+git clone git@github.com:yourusername/xrp-genie.git xrp-genie
 cd xrp-genie
 
 ./cli/bin/xrp-genie init my-test-app
