@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const { program } = require('commander');
+const { initCommand } = require('../commands/init');
+
+program
+  .name('xrp-genie')
+  .description('🧞‍♂️ XRP Genie - XRPL Wallet Boilerplate CLI')
+  .version('1.0.0');
+
+program
+  .command('init [project-name]')
+  .description('Initialize a new XRP Genie project')
+  .action(initCommand);
+
+program.parse();
