@@ -123,14 +123,14 @@ Visit: http://localhost:3000
 ---
 
 ## 🔒 Security Best Practices
-❌ Never do this:
+❌ Never:
 
 Don’t hardcode private keys or API secrets in your codebase
 (e.g. const PRIVATE_KEY = "rXXXXXXXXXXXXXXXXXX")
 
 Don't commit .env.local to Git.
 
-✅ Always do this:
+✅ Always:
 
 Store secrets in .env.local only, never in source code.
 
