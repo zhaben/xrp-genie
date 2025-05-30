@@ -15,10 +15,6 @@
   "author": "XRP Genie Contributors",
   "license": "MIT",
   "dependencies": {
-    "xrpl": "^3.0.0",
-    "@web3auth/modal": "^8.0.0",
-    "@web3auth/base": "^8.0.0",
-    "@web3auth/openlogin-adapter": "^8.0.0",
     "commander": "^9.0.0",
     "inquirer": "^8.0.0",
     "fs-extra": "^11.0.0"
@@ -29,6 +25,7 @@
   },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "next": ">=13.0.0"
+    "next": ">=13.0.0",
+    "xrpl": ">=3.0.0"
   }
 }

@@ -26,9 +26,15 @@ async function initCommand(projectName = 'my-xrp-app') {
   console.log(`📁 Scaffolding project in: ${projectPath}\n`);
 
   try {
-    // Copy template
+    // Copy template excluding node_modules and build artifacts
     const templatePath = path.join(__dirname, '../../templates', mode);
-    await fs.copy(templatePath, projectPath);
+    await fs.copy(templatePath, projectPath, {
+      filter: (src) => {
+        const basename = path.basename(src);
+        // Exclude node_modules, .next, and other build artifacts
+        return !['node_modules', '.next', 'dist', 'build', '.git'].includes(basename);
+      }
+    });
 
     // Copy .env.local.example to .env.local
     const envExamplePath = path.join(projectPath, '.env.local.example');
