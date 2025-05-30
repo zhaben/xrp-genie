@@ -38,6 +38,7 @@ yarn install
 ```
 
 ### 3. Initialize Your Project
+Choose your mode:
 ```bash
 # Generates a fully-typed TypeScript Next.js app
 
@@ -45,7 +46,7 @@ npx xrp-genie init my-wallet-app
 ```
 
 ### 4. Configure Environment
-Create .env.local in the root directory:
+Create .env.local in the root directory
 
 ```bash
 cp .env.local.example .env.local
