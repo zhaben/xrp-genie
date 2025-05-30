@@ -22,7 +22,7 @@ It supports three levels of complexity — from beginner-friendly devnet wallets
 
 ## 🚀 Quick Start
 
-### Set Up Your Dev Environment Properly The First Time (Beginner Devs Only)
+### 0. Set Up Your Dev Environment Properly The First Time (Beginner Devs Only)
 Install Git SSH
 - Go to an empty terminal
 - Type: ```bash ssh-keygen```
