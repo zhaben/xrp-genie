@@ -4,7 +4,7 @@
   from three integration modes—devnet faucet, Xaman wallet, or Web3Auth social login—and get a
   production-ready Next.js app in seconds.
 
-Generate complete Next.js wallet apps with `npx xrp-genie init`.
+Generate complete XRPL wallet apps with `npx xrp-genie init`.
 
 It supports three levels of complexity — from beginner-friendly devnet wallets for testing to advanced account abstraction for the most sophisticated production use cases with mainstream users.
 
@@ -72,27 +72,33 @@ npm run dev
 Visit: http://localhost:3000
 
 ---
+## ✨ Features
+- 🚀 **Instant scaffolding** with `npx xrp-genie init`
+- 📱 **Three integration modes** for different use cases
+- 🔷 **Full TypeScript support** with type definitions
+- 🎨 **Pre-configured Tailwind CSS** styling
+- 🧪 **Ready-to-use hooks** and components
 
-## 🔧 Features by Mode
-🟢 Mode 1: XRPL Testnet (Beginner)
-- Connect to the XRPL Testnet using xrpl.js
-- Generate non-custodial wallets locally
-- Fund wallets using XRPL faucet
-- View balance, transaction history
-- Send XRP to other accounts
+  ## 🔧 Features by Mode
+  🟢 Mode 1: XRPL Testnet (Beginner)
+  - Connect to the XRPL Testnet using xrpl.js
+  - Generate non-custodial wallets locally
+  - Fund wallets using XRPL faucet
+  - View balance, transaction history
+  - Send XRP to other accounts
 
-🔵 Mode 2: Xaman Wallet (Intermediate)
-- Login with XUMM (Xaman Wallet) via QR code
-- Fetch XRPL account info securely
-- Prepare and push-sign transactions through user approval
-- Works with both mainnet and testnet
+  🔵 Mode 2: Xaman Wallet (Intermediate)
+  - Login with XUMM (Xaman Wallet) via QR code
+  - Fetch XRPL account info securely
+  - Prepare and push-sign transactions through user approval
+  - Works with both mainnet and testnet
 
-🟣 Mode 3: Account Abstraction (Advanced)
-- 🔐 Authenticate users via social login (Google, Apple, etc.) using Web3Auth
-- 🧠 Reconstruct private keys securely in-browser via MPC (multi-party computation)
-- 🪪 Generate and persist XRPL wallets with no user seed phrases
-- 🧾 Sign and submit transactions programmatically (smart wallet behavior)
-- 🧱 Ideal for delegated signing, gas sponsorship, or future multisig/ZK workflows
+  🟣 Mode 3: Account Abstraction (Advanced)
+  - 🔐 Authenticate users via social login (Google, Apple, etc.) using Web3Auth
+  - 🧠 Reconstruct private keys securely in-browser via MPC (multi-party computation)
+  - 🪪 Generate and persist XRPL wallets with no user seed phrases
+  - 🧾 Sign and submit transactions programmatically (smart wallet behavior)
+  - 🧱 Ideal for delegated signing, gas sponsorship, or future multisig/ZK workflows
 
 ---
 
@@ -117,16 +123,14 @@ To prevent accidentally exposing secrets, make sure your .gitignore includes:
 ```
 This keeps all environment-specific and secret config out of your Git history — especially important for API keys, client IDs, and anything else that shouldn't be public.
 
-## 📚 References
-XRPL.org - https://xrpl.org/
+## 🛠️ Built With
+- **Next.js 15** - React framework with App Router [https://nextjs.org/docs/app]
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **XRPL.js** - Official XRP Ledger library [https://xrpl.org/]
+- **XUMM SDK** - [https://xumm.readme.io/]
+- **Web3Auth** - [https://web3auth.io/docs/]
 
-xrpl.js Docs - https://js.xrpl.org/
-
-XUMM SDK - https://xumm.readme.io/
-
-Next.js App Router - https://nextjs.org/docs/app
-
-Web3Auth - https://web3auth.io/docs/
 
 ## 🧞 Contribution & Roadmap
 **xrp-genie** is designed to grow. 
