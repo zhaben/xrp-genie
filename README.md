@@ -40,8 +40,6 @@ Install pnpm ```bash npm i pnpm```
 ```bash
 git clone git@github.com:yourusername/xrp-genie.git xrp-genie
 cd xrp-genie
-
-./cli/bin/xrp-genie init my-test-app
 ```
 
 ### 2. Install Dependencies
