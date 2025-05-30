@@ -38,7 +38,7 @@ yarn install
 ```
 
 ### 3. Initialize Your Project
-Choose your mode:
+Choose your mode
 ```bash
 # Generates a fully-typed TypeScript Next.js app
 
