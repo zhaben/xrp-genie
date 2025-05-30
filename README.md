@@ -1,6 +1,8 @@
 # 🧞‍♂️ XRP Genie — XRPL Wallet Boilerplate (Next.js)
 
-**XRP Genie** is a full-featured, modular boilerplate for building wallet-enabled web app on the **XRP Ledger (XRPL)** using **Next.js** and **Typescript**.
+🧞‍♂️ **XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose
+  from three integration modes—devnet faucet, Xaman wallet, or Web3Auth social login—and get a
+  production-ready Next.js app in seconds.
 
 It supports wallet integrations across three levels of complexity — from beginner testnet wallets to advanced account abstraction for production use cases.
 
