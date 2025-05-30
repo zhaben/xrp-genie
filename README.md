@@ -79,8 +79,11 @@ Protect .env.local — never commit it to Git.
 
 ## 📚 References
 XRPL.org - https://xrpl.org/
+
 xrpl.js Docs - https://js.xrpl.org/
+
 XUMM SDK - https://xumm.readme.io/
+
 Next.js App Router - https://nextjs.org/docs/app
 
 ## 🧞 Contribution & Roadmap
