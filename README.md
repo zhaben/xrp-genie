@@ -1,10 +1,12 @@
-# 🧞‍♂️ XRP Genie — XRPL Wallet Boilerplate (Next.js)
+# 🧞‍♂️ XRP Genie — XRPL Wallet CLI & SDK (Next.js)
 
 🧞‍♂️ **XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose
   from three integration modes—devnet faucet, Xaman wallet, or Web3Auth social login—and get a
   production-ready Next.js app in seconds.
 
-It supports wallet integrations across three levels of complexity — from beginner testnet wallets to advanced account abstraction for production use cases.
+Generate complete Next.js wallet apps with `npx xrp-genie init`.
+
+It supports three levels of complexity — from beginner-friendly devnet wallets for testing to advanced account abstraction for the most sophisticated production use cases with mainstream users.
 
 ---
 
