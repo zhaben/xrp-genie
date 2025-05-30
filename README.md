@@ -37,8 +37,19 @@ yarn install
 Create .env.local in the root directory:
 
 ```bash
+cp .env.local.example .env.local
+```
+
+Creat and save your API keys
+```bash
+# .env.local
+
+# mode2
 NEXT_PUBLIC_XUMM_API_KEY=your_xumm_api_key
 NEXT_PUBLIC_XUMM_API_SECRET=your_xumm_api_secret
+
+# mode3
+WEB3AUTH_CLIENT_ID=your-web3auth-client-id
 ```
 
 ## 🧪 Run Locally
@@ -92,7 +103,7 @@ To prevent accidentally exposing secrets, make sure your .gitignore includes:
 .env.local
 .env.*.local
 ```
-This keeps all environment-specific and secret config out of your Git history — especially important for XUMM API keys, Web3Auth client IDs, XRPL faucet URLs, and anything else that shouldn't be public.
+This keeps all environment-specific and secret config out of your Git history — especially important for API keys, client IDs, and anything else that shouldn't be public.
 
 ## 📚 References
 XRPL.org - https://xrpl.org/
