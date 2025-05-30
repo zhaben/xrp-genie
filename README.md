@@ -90,13 +90,6 @@ npm run dev
 Visit: http://localhost:3000
 
 ---
-## ✨ Features
-- 🚀 **Instant scaffolding** with `npx xrp-genie init`
-- 📱 **Three integration modes** for different use cases
-- 🔷 **Full TypeScript support** with type definitions
-- 🎨 **Pre-configured Tailwind CSS** styling
-- 🧪 **Ready-to-use hooks** and components
-
   ## 🔧 Features by Mode
   🟢 Mode 1: XRPL Devnet (Beginner)
   - Connect to the XRPL Devnet using xrpl.js
