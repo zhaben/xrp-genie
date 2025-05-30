@@ -29,7 +29,7 @@ Install Git SSH
 - Set your password
 - Type: ```bash cat /Users/yourusername/.ssh/id_ed25519.pub```
 - Copy your ssh key
-- Paste in your GitHub account Settings --> 
+- Go to your Github user account account settings --> Click "SSH and CPG Keys" --> Click "New SSH Key" --> Paste your SSH Key
 
 Install Oh My ZSH ```bash sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
 
