@@ -145,6 +145,25 @@ Store secrets in .env.local only, never in source code.
 ```
 This keeps all environment-specific and secret config out of your Git history — especially important for API keys, client IDs, and anything else that shouldn't be public.
 
+✅ We are Secure:
+
+  1. 🔒 API keys on server-side - No more NEXT_PUBLIC_ exposure
+  2. 🛡️ API routes created - /api/xumm/signin, /api/xumm/payment, /api/xumm/status
+  3. 🔐 Client-side hook updated - calls secure API routes instead of direct SDK
+  4. ⚡ No API key in browser - XUMM operations happen server-side only
+
+  How it works:
+
+  1. Frontend: Calls /api/xumm/signin to create QR code
+  2. Backend: Uses XUMM SDK with private API keys
+  3. Frontend: Displays QR code, polls for status
+  4. Backend: Checks XUMM payload status securely
+  5. Frontend: Updates UI when user signs/pays
+
+  API keys stay on the server, only QR codes and status updates go to the client.
+  
+  The Xaman template is production-ready and secure! 🎉
+
 ## 🛠️ Built With
 - **Next.js 15** - React framework with App Router [https://nextjs.org/docs/app]
 - **TypeScript** - Type-safe development [https://www.typescriptlang.org/]
