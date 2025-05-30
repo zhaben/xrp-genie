@@ -38,6 +38,8 @@ Install Oh My ZSH ```bash sh -c "$(curl -fsSL https://raw.githubusercontent.com/
 ```bash
 git clone https://github.com/yourusername/xrp-genie.git xrp-genie
 cd xrp-genie
+
+./cli/bin/xrp-genie init my-test-app
 ```
 
 ### 2. Install Dependencies
@@ -48,7 +50,7 @@ pnpm install
 npm install
 ```
 
-### 3. Initialize Your Project (OR START HERE)
+### 3. Initialize Your Project (OR START WITH SDK)
 Choose your mode
 ```bash
 # Generates a fully-typed TypeScript Next.js app
