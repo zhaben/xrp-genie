@@ -80,13 +80,10 @@ npm run dev
 
 ## 📚 Documentation
 
-**For detailed setup guides, network configuration, and troubleshooting:**
-
-🔗 **[Complete Documentation Site](https://zhaben.github.io/xrp-genie/)**
-
 ### Quick Links:
 - 🔐 [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
 - 📱 [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
+- 🌐 [Network Selection Guide](https://zhaben.github.io/xrp-genie/guides/network-selection)
 - 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
 
 ## ✨ Features
@@ -115,9 +112,7 @@ Planned features: NFT minting, Payment Abstraction
 
 PRs and feature requests are welcome!
 
-## 📄 License
-
-MIT © 2025 XRP Genie Contributors
+🪙 License MIT © 2025 xrp-genie Contributors
 
 ---
 
