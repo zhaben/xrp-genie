@@ -36,6 +36,9 @@ collections:
   help:
     output: true
     permalink: /:collection/:name/
+  sdk:
+    output: true
+    permalink: /:collection/:name/
 
 # Defaults
 defaults:

@@ -13,6 +13,9 @@ npx xrp-genie init my-app
 
 ## 📖 Documentation Sections
 
+### 📦 SDK
+- [XRP Genie SDK](sdk/) - Framework-agnostic npm package for any JavaScript project
+
 ### 🛠️ Setup Guides
 - [Web3Auth Dashboard Setup](setup/web3auth-dashboard.md) - Complete Web3Auth configuration
 - [Xaman Dashboard Setup](setup/xaman-dashboard.md) - XUMM/Xaman API configuration
