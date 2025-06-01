@@ -1,4 +1,7 @@
-# 🌐 Network Selection Guide
+---
+layout: page
+title: 🌐 Network Selection Guide
+---
 
 Understanding which networks to choose for your XRP Genie project.
 

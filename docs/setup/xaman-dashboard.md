@@ -1,4 +1,7 @@
-# 📱 Xaman Dashboard Setup
+---
+layout: page
+title: 📱 Xaman Dashboard Setup
+---
 
 Complete guide to setting up Xaman (XUMM) Wallet integration for XRP Genie projects.
 

@@ -1,4 +1,7 @@
-# 🔐 Google Social Login Setup
+---
+layout: page
+title: 🔐 Google Social Login Setup
+---
 
 Configure Google OAuth for seamless social login with Web3Auth in your XRP Genie project.
 

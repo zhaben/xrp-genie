@@ -1,4 +1,7 @@
-# 🛠️ Developer Environment Setup (Contributors Only)
+---
+layout: page
+title: 🛠️ Developer Environment Setup
+---
 
 **For contributing to XRP Genie or modifying the source code.** 
 

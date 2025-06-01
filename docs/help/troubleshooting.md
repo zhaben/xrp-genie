@@ -1,4 +1,7 @@
-# ❓ Troubleshooting
+---
+layout: page
+title: ❓ Troubleshooting
+---
 
 Common issues and solutions for XRP Genie projects.
 

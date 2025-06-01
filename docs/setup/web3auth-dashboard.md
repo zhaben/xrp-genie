@@ -1,4 +1,7 @@
-# 🔐 Web3Auth Dashboard Setup
+---
+layout: page
+title: 🔐 Web3Auth Dashboard Setup
+---
 
 This guide walks you through setting up Web3Auth for XRP Genie projects.
 
