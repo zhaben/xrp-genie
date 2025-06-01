@@ -90,13 +90,6 @@ npm run dev
 Visit: http://localhost:3000
 
 ---
-## ✨ Features
-- 🚀 **Instant scaffolding** with `npx xrp-genie init`
-- 📱 **Three integration modes** for different use cases
-- 🔷 **Full TypeScript support** with type definitions
-- 🎨 **Pre-configured Tailwind CSS** styling
-- 🧪 **Ready-to-use hooks** and components
-
   ## 🔧 Features by Mode
   🟢 Mode 1: XRPL Devnet (Beginner)
   - Connect to the XRPL Devnet using xrpl.js
@@ -159,8 +152,31 @@ This keeps all environment-specific and secret config out of your Git history �
   5. Frontend: Updates UI when user signs/pays
 
   API keys stay on the server, only QR codes and status updates go to the client.
-  
+
   The Xaman template is production-ready and secure! 🎉
+  
+  ✅ Web3Auth Security:
+
+  Server-side approach:
+
+  - ✅ No NEXT_PUBLIC_ environment variables
+  - ✅ Client ID stored in .env.local (server-side only)
+  - ✅ API route for initialization - /api/web3auth/init
+  - ✅ Server-side account info - /api/xrpl/account-info
+  - ✅ Consistent with Xaman approach
+
+  How it works:
+
+  1. Frontend calls /api/web3auth/init to get client ID and network config
+  2. Web3Auth initializes with server-provided configuration
+  3. Account info fetched via server-side API (same as Xaman)
+  4. All sensitive data stays on the server
+
+  Environment variables:
+
+  - WEB3AUTH_CLIENT_ID - Server-side only
+  - XRPL_NETWORK - Configured by CLI based on user selection
+
 
 ## 🛠️ Built With
 - **Next.js 15** - React framework with App Router [https://nextjs.org/docs/app]
