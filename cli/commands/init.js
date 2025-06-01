@@ -19,7 +19,7 @@ async function initCommand(projectName = 'my-xrp-app') {
     }
   ]);
 
-  // Ask for network selection if Xaman mode is chosen
+  // Ask for network selection if Xaman or Web3Auth mode is chosen
   let network = 'testnet'; // default
   if (answers.mode === 'xaman') {
     const networkAnswer = await inquirer.prompt([
@@ -34,6 +34,33 @@ async function initCommand(projectName = 'my-xrp-app') {
       }
     ]);
     network = networkAnswer.network;
+  } else if (answers.mode === 'web3auth') {
+    const web3authEnvAnswer = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'web3authEnv',
+        message: 'Choose Web3Auth infrastructure environment:',
+        choices: [
+          { name: '🧪 Sapphire Devnet - Development (most new projects)', value: 'devnet' },
+          { name: '🌐 Sapphire Mainnet - Production (established projects)', value: 'mainnet' }
+        ]
+      }
+    ]);
+
+    const networkAnswer = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'network',
+        message: 'Choose XRPL network for Web3Auth integration:',
+        choices: [
+          { name: '🧪 Testnet - For development and testing (with faucet)', value: 'testnet' },
+          { name: '🌐 Mainnet - Production use (real XRP required)', value: 'mainnet' }
+        ]
+      }
+    ]);
+    
+    network = networkAnswer.network;
+    answers.web3authEnv = web3authEnvAnswer.web3authEnv;
   }
 
   const { mode } = answers;
@@ -69,9 +96,11 @@ async function initCommand(projectName = 'my-xrp-app') {
       await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
     }
 
-    // Configure network settings for Xaman mode
+    // Configure network settings for Xaman and Web3Auth modes
     if (mode === 'xaman') {
       await configureXamanNetwork(projectPath, network);
+    } else if (mode === 'web3auth') {
+      await configureWeb3AuthNetwork(projectPath, network, answers.web3authEnv);
     }
 
     console.log('✅ Project scaffolded successfully!');
@@ -93,7 +122,7 @@ async function initCommand(projectName = 'my-xrp-app') {
     
     if (mode !== 'faucet') {
       console.log('\n⚠️  Remember to configure your API keys in .env.local');
-      showModeSpecificInstructions(mode);
+      showModeSpecificInstructions(mode, network);
     }
 
   } catch (error) {
@@ -143,17 +172,103 @@ async function configureXamanNetwork(projectPath, network) {
   }
 }
 
-function showModeSpecificInstructions(mode) {
+async function configureWeb3AuthNetwork(projectPath, network, web3authEnv) {
+  // Update the Web3Auth hook with network configuration
+  const hookPath = path.join(projectPath, 'hooks/useWeb3AuthWallet.ts');
+  if (await fs.pathExists(hookPath)) {
+    let content = await fs.readFile(hookPath, 'utf8');
+    
+    // Update chain config based on network
+    let chainConfigLine;
+    if (network === 'mainnet') {
+      chainConfigLine = 'const chainConfig = getXrplChainConfig(0x1)!'; // Mainnet
+    } else {
+      // Testnet (default)
+      chainConfigLine = 'const chainConfig = getXrplChainConfig(0x2)!'; // Testnet 
+    }
+    
+    content = content.replace(
+      /const chainConfig = getXrplChainConfig\(.*?\)!/,
+      chainConfigLine
+    );
+    
+    // Update Web3Auth environment
+    const web3authNetworkLine = web3authEnv === 'mainnet' 
+      ? 'web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,'
+      : 'web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_DEVNET,';
+    
+    content = content.replace(
+      /web3AuthNetwork: WEB3AUTH_NETWORK\.SAPPHIRE_[A-Z]+,/,
+      web3authNetworkLine
+    );
+
+    // Update comment with network info
+    content = content.replace(
+      /\/\/ Use testnet by default \(will be configurable by CLI\)|\/\/ Using .* \(configured by CLI\)/,
+      `// Using XRPL ${network} with Web3Auth ${web3authEnv} (configured by CLI)`
+    );
+    
+    // Update faucet URL based on network
+    let faucetUrl;
+    if (network === 'testnet') {
+      faucetUrl = 'https://faucet.altnet.rippletest.net/accounts';
+    } else {
+      // Mainnet - disable faucet
+      faucetUrl = null;
+    }
+    
+    if (faucetUrl) {
+      content = content.replace(
+        /const response = await fetch\(".*?"/,
+        `const response = await fetch("${faucetUrl}"`
+      );
+    } else {
+      // For mainnet, replace faucet function with error message
+      content = content.replace(
+        /\/\/ Use XRPL testnet faucet[\s\S]*?xrpAmount: "1000" \/\/ Request 1000 XRP from testnet faucet/,
+        `// Mainnet - no faucet available
+      throw new Error("Faucet not available on mainnet. Please use real XRP to fund your account.")`
+      );
+    }
+    
+    await fs.writeFile(hookPath, content);
+  }
+
+  // Update environment file
+  const envPath = path.join(projectPath, '.env.local');
+  if (await fs.pathExists(envPath)) {
+    let content = await fs.readFile(envPath, 'utf8');
+    if (content.includes('XRPL_NETWORK=')) {
+      content = content.replace(/^.*XRPL_NETWORK=.*/m, `NEXT_PUBLIC_XRPL_NETWORK=${network}`);
+    } else {
+      content += `\nNEXT_PUBLIC_XRPL_NETWORK=${network}`;
+    }
+    content += `\nNEXT_PUBLIC_WEB3AUTH_ENV=${web3authEnv}\n`;
+    await fs.writeFile(envPath, content);
+  }
+}
+
+function showModeSpecificInstructions(mode, network) {
   if (mode === 'xaman') {
     console.log('\n📱 Xaman Setup:');
     console.log('   1. Sign up at https://apps.xumm.dev/');
     console.log('   2. Create a new app and get your API key & secret');
     console.log('   3. Add them to .env.local');
+    if (network === 'mainnet') {
+      console.log('   ⚠️  Mainnet: Real XRP transactions will occur');
+    }
   } else if (mode === 'web3auth') {
     console.log('\n🔐 Web3Auth Setup:');
     console.log('   1. Sign up at https://dashboard.web3auth.io/');
     console.log('   2. Create a new project and get your client ID');
-    console.log('   3. Add it to .env.local');
+    console.log('   3. Replace the clientId in hooks/useWeb3AuthWallet.ts');
+    console.log('   4. Note: Web3Auth client ID is safe to expose publicly');
+    
+    if (network === 'mainnet') {
+      console.log('   ⚠️  Mainnet: Real XRP required - no faucet available');
+    } else {
+      console.log('   🧪 Testnet: Faucet funding available for testing');
+    }
   }
 }
 
