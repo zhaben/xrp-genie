@@ -1,14 +1,9 @@
-# 🧞‍♂️ XRP Genie Documentation
-
 Welcome to the XRP Genie documentation! This CLI tool and SDK helps you rapidly scaffold XRPL wallet applications with three integration modes.
 
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/zhaben/xrp-genie.git
-cd xrp-genie
-npm install
-./cli/bin/xrp-genie init my-wallet-app
+npx xrp-genie init my-app
 ```
 
 ## 📖 Documentation Sections

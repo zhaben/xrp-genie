@@ -1,7 +1,7 @@
 title: "🧞‍♂️ XRP Genie Documentation"
 description: "CLI tool and SDK for rapidly scaffolding XRPL wallet applications"
 url: "https://zhaben.github.io"
-baseurl: "/xrp-genie"
+baseurl: "/xrp-genie/docs"
 
 # Theme
 theme: minima
@@ -11,9 +11,8 @@ plugins:
 
 # Navigation
 header_pages:
-  - setup/web3auth-dashboard.md
   - setup/xaman-dashboard.md
-  - guides/network-selection.md
+  - setup/web3auth-dashboard.md
 
 # Markdown settings
 markdown: kramdown
