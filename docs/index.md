@@ -1,6 +1,6 @@
 # 🧞‍♂️ XRP Genie Documentation
 
-CLI tool for rapidly scaffolding XRPL wallet applications.
+Welcome to the XRP Genie documentation! This CLI tool and SDK helps you rapidly scaffold XRPL wallet applications with three integration modes.
 
 ## 🚀 Quick Start
 
@@ -11,18 +11,18 @@ npm install
 ./cli/bin/xrp-genie init my-wallet-app
 ```
 
-## 📖 Essential Guides
+## 📖 Documentation Sections
 
-### 🛠️ Setup Tutorials
+### 🛠️ Setup Guides
 - [Web3Auth Dashboard Setup](setup/web3auth-dashboard.md) - Complete Web3Auth configuration
 - [Xaman Dashboard Setup](setup/xaman-dashboard.md) - XUMM/Xaman API configuration
 - [Google Social Login Setup](setup/google-auth.md) - Google OAuth integration example
-- [Network Selection Guide](guides/network-selection.md) - Choosing testnet vs mainnet
-
-### 🔧 Development
 - [Developer Environment](setup/developer-environment.md) - Contributing setup
 
-### ❓ Help
+### 🌐 Network Configuration
+- [Network Selection Guide](guides/network-selection.md) - Choosing testnet vs mainnet
+
+### ❓ Help & Support
 - [Troubleshooting](help/troubleshooting.md) - Common issues and solutions
 
 ## 🔗 Links
