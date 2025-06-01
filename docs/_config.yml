@@ -3,8 +3,8 @@ description: "CLI tool and SDK for rapidly scaffolding XRPL wallet applications"
 url: "https://zhaben.github.io"
 baseurl: "/xrp-genie"
 
-# Theme - using a prettier theme
-remote_theme: pages-themes/architect@v0.2.0
+# Theme - using Cayman theme with purple gradient
+remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
