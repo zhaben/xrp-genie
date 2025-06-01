@@ -35,7 +35,7 @@ export class XRPLClient {
       const xrpBalance = dropsToXrp(response.result.account_data.Balance);
       
       return {
-        xrp: xrpBalance
+        xrp: xrpBalance.toString()
       };
     } catch (error) {
       throw new Error(`Failed to get balance: ${error}`);
@@ -51,7 +51,7 @@ export class XRPLClient {
 
     try {
       const payment = {
-        TransactionType: 'Payment',
+        TransactionType: 'Payment' as const,
         Account: fromWallet.address,
         Destination: toAddress,
         Amount: xrpToDrops(amount)
@@ -63,7 +63,9 @@ export class XRPLClient {
 
       return {
         hash: result.result.hash,
-        success: result.result.meta?.TransactionResult === 'tesSUCCESS'
+        success: typeof result.result.meta === 'object' && result.result.meta !== null && 'TransactionResult' in result.result.meta 
+          ? result.result.meta.TransactionResult === 'tesSUCCESS'
+          : false
       };
     } catch (error) {
       return {

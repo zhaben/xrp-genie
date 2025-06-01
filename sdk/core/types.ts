@@ -23,21 +23,28 @@ export interface TokenBalance {
   issuer: string;
 }
 
-export interface WalletMode {
-  type: 'faucet' | 'xaman' | 'web3auth';
-  config?: any;
-}
+export type WalletProvider = 'web3auth' | 'xaman' | 'faucet';
 
 export interface XRPGenieConfig {
-  mode: WalletMode;
+  provider: WalletProvider;
   network: 'testnet' | 'mainnet';
   rpcUrl?: string;
+  web3auth?: {
+    clientId: string;
+    environment: 'sapphire_devnet' | 'sapphire_mainnet';
+  };
+  xaman?: {
+    apiKey: string;
+    apiSecret: string;
+  };
 }
 
-export interface WalletProvider {
+export interface IWalletProvider {
   connect(): Promise<XRPLWallet>;
   disconnect(): Promise<void>;
   getBalance(address: string): Promise<WalletBalance>;
-  sendTransaction(to: string, amount: string): Promise<TransactionResult>;
+  sendXRP(to: string, amount: string): Promise<TransactionResult>;
+  signMessage(message: string): Promise<string>;
   isConnected(): boolean;
+  fundAccount?(): Promise<void>;
 }
