@@ -1,5 +1,6 @@
 ---
 layout: home
+title: 🧞‍♂️ XRP Genie Documentation"
 ---
 
 Welcome to the XRP Genie documentation! This CLI tool and SDK helps you rapidly scaffold XRPL wallet applications with three integration modes.
