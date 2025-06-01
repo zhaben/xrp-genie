@@ -29,6 +29,3 @@ npx xrp-genie init my-app
 - [GitHub Repository](https://github.com/zhaben/xrp-genie)
 - [Issues & Support](https://github.com/zhaben/xrp-genie/issues)
 
----
-
-Built with ❤️ for the XRPL community

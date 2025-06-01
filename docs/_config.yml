@@ -3,6 +3,9 @@ description: "CLI tool and SDK for rapidly scaffolding XRPL wallet applications"
 url: "https://zhaben.github.io"
 baseurl: "/xrp-genie"
 
+# Custom footer
+footer_content: "Built with ❤️ for the XRPL community"
+
 # Theme
 theme: minima
 plugins:
