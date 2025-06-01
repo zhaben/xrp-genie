@@ -1,199 +1,124 @@
-# 🧞‍♂️ XRP Genie — XRPL Wallet CLI & SDK (Next.js)
+# 🧞‍♂️ XRP Genie - XRPL Wallet CLI & SDK
 
-🧞‍♂️ **XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose
-  from three integration modes—devnet faucet, Xaman wallet, or Web3Auth social login—and get a
-  production-ready Next.js app in seconds.
+> **📖 [View Full Documentation →](https://zhaben.github.io/xrp-genie/)**
 
-Generate complete XRPL wallet apps with `npx xrp-genie init`.
+**🧞‍♂️ XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose from three integration modes and get a production-ready Next.js app in seconds.
+
+Generate complete XRPL wallet apps with `npx xrp-genie init`
 
 It supports three levels of complexity — from beginner-friendly devnet wallets for testing to advanced account abstraction for the most sophisticated production use cases with mainstream users.
+
+```bash
+git clone https://github.com/zhaben/xrp-genie.git xrp-genie
+cd xrp-genie
+npm install
+./cli/bin/xrp-genie init my-wallet-app
+cp .env.local.example .env.local
+```
 
 ---
 
 ## 🧠 Modes
 
-| Mode | Description |
-|------|-------------|
-| 🟢 **Mode 1: XRPL Devnet** | Create and manage wallets using `xrpl.js` on the XRPL devnet. |
-| 🔵 **Mode 2: Xaman Wallet** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing. |
-| 🟣 **Mode 3: Account Abstraction** | Uses Web3Auth to securely manage private keys via social login and MPC. No private key is ever stored or exposed directly — keys are reconstructed securely on the client using threshold cryptography. |
-
----
+| Mode | Description | Best For |
+|------|-------------|----------|
+| 🟢 **Mode 1: Faucet** | Create and manage wallets using `xrpl.js` on the XRPL devnet | Learning & prototyping |
+| 🔵 **Mode 2: Xaman** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing | Mobile-first apps |
+| 🟣 **Mode 3: Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored or exposed directly — keys are reconstructed securely on the client using threshold cryptography | Mainstream users |
 
 ## 🚀 Quick Start
 
-### 0. Set Up Your Dev Environment Properly The First Time (Beginner Devs Only)
-Install Git SSH
-- Go to an empty terminal
-- Type: ```bash ssh-keygen```
-- Set your password
-- Type: ```bash cat /Users/yourusername/.ssh/id_ed25519.pub```
-- Copy your ssh key
-- Go to your Github user account account settings --> Click "SSH and CPG Keys" --> Click "New SSH Key" --> Paste your SSH Key
-
-Install Oh My ZSH ```bash sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"```
-
-Install pnpm ```bash npm i pnpm```
-
-### 1. Clone the Repo
-
+### 1. Clone and Install
 ```bash
-git clone git@github.com:yourusername/xrp-genie.git xrp-genie
+git clone https://github.com/zhaben/xrp-genie.git xrp-genie
 cd xrp-genie
-```
-
-### 2. Install Dependencies
-
-```bash
-pnpm install
-# or
 npm install
 ```
 
-### 3. Initialize Your Project (OR START WITH SDK)
-Choose your mode
+### 2. Generate Your App
 ```bash
-# Generates a fully-typed TypeScript Next.js app
-
-npx xrp-genie init my-wallet-app
+./cli/bin/xrp-genie init my-wallet-app
+cd my-wallet-app
 ```
 
-### 4. Configure Environment
-Create .env.local in the root directory
-
+### 3. Configure API Keys (if needed)
 ```bash
-cp .env.local.example .env.local
-```
+# Edit .env.local with your API keys:
 
-Creat and save your API keys
-```bash
-# .env.local
-
-# mode2
+# For Xaman mode:
 XUMM_API_KEY=your_xumm_api_key
 XUMM_API_SECRET=your_xumm_api_secret
 
-# mode3
+# For Web3Auth mode:
+# Replace clientId in hooks/useWeb3AuthWallet.ts
 WEB3AUTH_CLIENT_ID=your-web3auth-client-id
 ```
 
-### 4. Configure Environment
-```bash
-./cli/bin/xrp-genie init my-test-app
-```
+**📖 Need API keys?** See setup guides:
+- [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
+- [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
 
-## 🧪 Run Locally
-
+### 4. Run Your App
 ```bash
 npm run dev
+# Open http://localhost:3000
 ```
-Visit: http://localhost:3000
-
----
-  ## 🔧 Features by Mode
-  🟢 Mode 1: XRPL Devnet (Beginner)
-  - Connect to the XRPL Devnet using xrpl.js
-  - Generate non-custodial wallets locally
-  - Fund wallets using XRPL faucet
-  - View balance, transaction history
-  - Send XRP to other accounts
-
-  🔵 Mode 2: Xaman Wallet (Intermediate)
-  - Login with XUMM (Xaman Wallet) via QR code
-  - Fetch XRPL account info securely
-  - Prepare and push-sign transactions through user approval
-  - Works with both mainnet and devnet
-
-  🟣 Mode 3: Account Abstraction (Advanced)
-  - 🔐 Authenticate users via social login (Google, Apple, etc.) using Web3Auth
-  - 🧠 Reconstruct private keys securely in-browser via MPC (multi-party computation)
-  - 🪪 Generate and persist XRPL wallets with no user seed phrases
-  - 🧾 Sign and submit transactions programmatically (smart wallet behavior)
-  - 🧱 Ideal for delegated signing, gas sponsorship, or future multisig/ZK workflows
-
----
 
 ## 🔒 Security Best Practices
-❌ Never:
 
-Don’t hardcode private keys or API secrets in your codebase
-(e.g. const PRIVATE_KEY = "rXXXXXXXXXXXXXXXXXX")
+✅ **What XRP Genie Provides:**
+- 🛡️ **Server-side API keys** - No NEXT_PUBLIC_ exposure
+- 🔐 **Secure API routes** - /api/xumm/* and /api/xrpl/*
+- 🎯 **Environment-based config** - Dynamic network selection
+- 🔑 **MPC key management** - Web3Auth threshold cryptography
+- 📱 **QR-based signing** - No private keys in browser (Xaman mode)
 
-Don't commit .env.local to Git.
+✅ **Developer Guidelines:**
+- Never commit .env.local files
+- Use provided environment templates
+- API keys stay server-side only
 
-✅ Always:
+## 📚 Documentation
 
-Store secrets in .env.local only, never in source code.
+**For detailed setup guides, network configuration, and troubleshooting:**
 
+🔗 **[Complete Documentation Site](https://zhaben.github.io/xrp-genie/)**
 
-📦 What to include in .gitignore to prevent accidentally exposing secrets:
+### Quick Links:
+- 🔐 [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
+- 📱 [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
+- 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
 
-```bash
-# Environment variables
-.env
-.env.local
-.env.*.local
-```
-This keeps all environment-specific and secret config out of your Git history — especially important for API keys, client IDs, and anything else that shouldn't be public.
+## ✨ Features
 
-✅ We are Secure:
-
-  1. 🔒 API keys on server-side - No more NEXT_PUBLIC_ exposure
-  2. 🛡️ API routes created - /api/xumm/signin, /api/xumm/payment, /api/xumm/status
-  3. 🔐 Client-side hook updated - calls secure API routes instead of direct SDK
-  4. ⚡ No API key in browser - XUMM operations happen server-side only
-
-  How it works:
-
-  1. Frontend: Calls /api/xumm/signin to create QR code
-  2. Backend: Uses XUMM SDK with private API keys
-  3. Frontend: Displays QR code, polls for status
-  4. Backend: Checks XUMM payload status securely
-  5. Frontend: Updates UI when user signs/pays
-
-  API keys stay on the server, only QR codes and status updates go to the client.
-
-  The Xaman template is production-ready and secure! 🎉
-  
-  ✅ Web3Auth Security:
-
-  Server-side approach:
-
-  - ✅ No NEXT_PUBLIC_ environment variables
-  - ✅ Client ID stored in .env.local (server-side only)
-  - ✅ API route for initialization - /api/web3auth/init
-  - ✅ Server-side account info - /api/xrpl/account-info
-  - ✅ Consistent with Xaman approach
-
-  How it works:
-
-  1. Frontend calls /api/web3auth/init to get client ID and network config
-  2. Web3Auth initializes with server-provided configuration
-  3. Account info fetched via server-side API (same as Xaman)
-  4. All sensitive data stays on the server
-
-  Environment variables:
-
-  - WEB3AUTH_CLIENT_ID - Server-side only
-  - XRPL_NETWORK - Configured by CLI based on user selection
-
+- 🚀 **Instant scaffolding** with CLI tool
+- 🔷 **Full TypeScript support** with XRPL type definitions
+- 🎨 **Pre-configured Tailwind CSS** styling
+- 🔒 **Production-ready security** with server-side API patterns
+- 🌐 **Multi-network support** (testnet/mainnet)
+- 📱 **Mobile-responsive** components
 
 ## 🛠️ Built With
-- **Next.js 15** - React framework with App Router [https://nextjs.org/docs/app]
-- **TypeScript** - Type-safe development [https://www.typescriptlang.org/]
-- **Tailwind CSS** - Utility-first styling [https://tailwindcss.com/]
-- **XRPL.js** - Official XRP Ledger library [https://xrpl.org/]
-- **XUMM SDK** - [https://xumm.readme.io/]
-- **Web3Auth** - [https://web3auth.io/docs/]
-- **pnpm** - [https://pnpm.io/]
-- **Oh My ZSH** - [https://ohmyz.sh/]
+
+- [Next.js 15](https://nextjs.org/) - React framework with App Router
+- [TypeScript](https://www.typescriptlang.org/) - Type-safe development
+- [XRPL.js](https://xrpl.org/) - Official XRP Ledger library
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling
+- [XUMM SDK](https://xumm.readme.io/) - Xaman Wallet integration
+- [Web3Auth](https://web3auth.io/) - Social login & account abstraction
 
 ## 🧞 Contribution & Roadmap
+
 **xrp-genie** is designed to grow. 
 
 Planned features: NFT minting, Payment Abstraction
 
 PRs and feature requests are welcome!
 
-🪙 License
-MIT © 2025 xrp-genie Contributors
+## 📄 License
+
+MIT © 2025 XRP Genie Contributors
+
+---
+
+**Need help?** Check the [documentation](https://zhaben.github.io/xrp-genie/) or [open an issue](https://github.com/zhaben/xrp-genie/issues).
