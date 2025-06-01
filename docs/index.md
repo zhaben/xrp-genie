@@ -3,13 +3,27 @@ layout: home
 title: 🧞‍♂️ XRP Genie Documentation
 ---
 
-Welcome to the XRP Genie documentation! This CLI tool and SDK helps you rapidly scaffold XRPL wallet applications with three integration modes.
+Welcome to the XRP Genie documentation! This toolkit provides both a CLI for scaffolding and an SDK for programmatic integration of XRPL wallet applications.
 
 ## 🚀 Quick Start
 
+### CLI Tool (Scaffold Apps)
 ```bash
 npx xrp-genie init my-app
 ```
+
+### SDK (Add to Existing Projects)
+```bash
+npm install xrp-genie-sdk xrpl
+```
+
+```javascript
+import { XRPGenie } from 'xrp-genie-sdk';
+const genie = XRPGenie.faucet();
+const wallet = await genie.connect();
+```
+
+[📦 **View Full SDK Documentation →**](sdk/)
 
 ## 📖 Documentation Sections
 
