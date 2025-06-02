@@ -3,13 +3,12 @@ layout: home
 title: 🧞‍♂️ XRP Genie Documentation
 ---
 
-Welcome to the XRP Genie documentation! This toolkit provides both a CLI for scaffolding new apps and an SDK for integration of XRPL wallet applications into any javascript project.
+Welcome to the XRP Genie documentation! This toolkit provides both a CLI for scaffolding new Next.js apps and an SDK for integration of XRPL wallet applications into any javascript project.
 
 ## 🚀 Quick Start
 
 ### CLI Tool (Create New App)
 ```bash
-# Scaffold complete Next.js apps from scratch
 npx xrp-genie init my-app
 ```
 
@@ -17,7 +16,6 @@ npx xrp-genie init my-app
 
 ### SDK (Add to Existing App)
 ```bash
-# Framework-agnostic npm package for any JavaScript project
 npm install xrp-genie-sdk xrpl
 ```
 
