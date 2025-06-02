@@ -14,8 +14,6 @@ plugins:
 
 # Navigation
 header_pages:
-  - README.md
-  - sdk/index.md
   - setup/xaman-dashboard.md
   - setup/web3auth-dashboard.md
 
