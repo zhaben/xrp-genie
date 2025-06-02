@@ -78,14 +78,6 @@ npm run dev
 ### Quick Links:
 - 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
 
-## ✨ Features
-
-- 🔷 **Full TypeScript support** with XRPL type definitions
-- 🎨 **Pre-configured Tailwind CSS** styling
-- 🔒 **Production-ready security** with server-side API patterns
-- 🌐 **Multi-network support** (testnet/mainnet)
-- 📱 **Mobile-responsive** components
-
 ## 🛠️ Built With
 
 - [Next.js 15](https://nextjs.org/) - React framework with App Router
