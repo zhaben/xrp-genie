@@ -91,7 +91,7 @@ npm run dev
 
 **xrp-genie** is designed to grow. 
 
-Planned features: NFT minting, Payment Abstraction
+Planned features: NFT minting, Payment Abstraction, Decentralized Agents
 
 PRs and feature requests are welcome!
 
