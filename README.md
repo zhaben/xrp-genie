@@ -77,14 +77,12 @@ npm run dev
 ## 📚 Documentation
 
 ### Quick Links:
-- 🔐 [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
 - 📱 [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
-- 🌐 [Network Selection Guide](https://zhaben.github.io/xrp-genie/guides/network-selection)
+- 🔐 [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
 - 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
 
 ## ✨ Features
 
-- 🚀 **Instant scaffolding** with CLI tool
 - 🔷 **Full TypeScript support** with XRPL type definitions
 - 🎨 **Pre-configured Tailwind CSS** styling
 - 🔒 **Production-ready security** with server-side API patterns
