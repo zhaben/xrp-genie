@@ -22,7 +22,7 @@ npm install xrp-genie-sdk xrpl
 [📦 **View Full SDK Documentation →**](sdk/)
 
 
-## 📖 Documentation Sectioins
+## 📖 Documentation Sections
 
 ### 🛠️ Setup Guides
 - [Web3Auth Dashboard Setup](setup/web3auth-dashboard.md) - Complete Web3Auth configuration
