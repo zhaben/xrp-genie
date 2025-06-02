@@ -72,13 +72,10 @@ npm run dev
 ✅ **Developer Guidelines:**
 - Never commit .env.local files
 - Use provided environment templates
-- API keys stay server-side only
 
 ## 📚 Documentation
 
 ### Quick Links:
-- 📱 [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
-- 🔐 [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
 - 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
 
 ## ✨ Features

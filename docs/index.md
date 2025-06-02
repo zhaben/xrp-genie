@@ -9,6 +9,8 @@ Welcome! Build XRPL wallet applications with our CLI tool and SDK.
 
 ### CLI Tool (Create New App)
 ```bash
+git clone https://github.com/zhaben/xrp-genie.git
+cd xrp-genie && npm install
 npx xrp-genie init my-app
 ```
 

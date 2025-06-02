@@ -8,6 +8,14 @@ Command-line tool for scaffolding complete Next.js XRPL wallet applications.
 ## 🚀 Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/zhaben/xrp-genie.git
+cd xrp-genie
+
+# Install dependencies
+npm install
+
+# Create your app
 npx xrp-genie init my-app
 cd my-app
 npm run dev
