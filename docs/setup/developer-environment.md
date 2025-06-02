@@ -5,7 +5,7 @@ title: 🛠️ Developer Environment Setup
 
 **For contributing to XRP Genie or modifying the source code.** 
 
-> **Just using XRP Genie?** You don't need this! Simply run `npx xrp-genie init my-app`
+> **Just using XRP Genie?** You don't need this! Simply run `npx xrp-genie init`
 
 If you're new to development and want to contribute, here's a quick setup:
 

@@ -82,8 +82,8 @@ npm run dev
 
 - [Next.js 15](https://nextjs.org/) - React framework with App Router
 - [TypeScript](https://www.typescriptlang.org/) - Type-safe development
-- [XRPL.js](https://xrpl.org/) - Official XRP Ledger library
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling
+- [XRPL.js](https://xrpl.org/) - Official XRP Ledger library
 - [XUMM SDK](https://xumm.readme.io/) - Xaman Wallet integration
 - [Web3Auth](https://web3auth.io/) - Social login & account abstraction
 
