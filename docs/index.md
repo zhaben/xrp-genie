@@ -3,7 +3,7 @@ layout: home
 title: 🧞‍♂️ XRP Genie Documentation
 ---
 
-Welcome to the XRP Genie documentation! This toolkit provides both a CLI for scaffolding new Next.js apps and an SDK for integration of XRPL wallet applications into any javascript project.
+Welcome to the XRP Genie documentation! This toolkit provides both a CLI tool for scaffolding new Next.js apps and an SDK for integration of XRPL wallet applications into any javascript project.
 
 ## 🚀 Quick Start
 
