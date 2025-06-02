@@ -6,7 +6,7 @@
 
 Generate complete Next.js/XRPL wallet apps with `npx xrp-genie init`
  
-Add to any javascript app with `npm install xrp-genie-sdk xrpl`
+Add to any javascript app with `npm i xrp-genie-sdk`
 
 
 It supports three levels of complexity — from beginner-friendly devnet wallets for testing to advanced account abstraction for the most sophisticated production use cases with mainstream users.
