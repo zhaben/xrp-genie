@@ -32,7 +32,7 @@ npm install
 
 ### 2. Generate Your App
 ```bash
-./cli/bin/xrp-genie init my-wallet-app
+npx xrp-genie init my-wallet-app
 cd my-wallet-app
 cp .env.local.example .env.local
 ```
