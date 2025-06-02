@@ -2,9 +2,9 @@
 
 > **📖 [View Full Documentation →](https://zhaben.github.io/xrp-genie/)**
 
-**🧞‍♂️ XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose from three integration modes and get a production-ready app in seconds.
+**🧞‍♂️ XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose from three modes and get a production-ready app in seconds.
 
-Generate complete Next.js/XRPL wallet apps with `npx xrp-genie init`
+Generate working Next.js/XRPL wallet apps with `npx xrp-genie init`
  
 Add to any javascript app with `npm i xrp-genie-sdk`
 
