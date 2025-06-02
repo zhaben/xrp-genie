@@ -17,9 +17,9 @@ It supports three levels of complexity — from beginner-friendly devnet wallets
 
 | Mode | Description | Best For |
 |------|-------------|----------|
-| 🟢 **Mode 1: Faucet** | Create and manage wallets using `xrpl.js` on the XRPL devnet | Learning & prototyping |
+| 🟢 **Mode 1: Faucet** | Create and manage wallets on the XRPL devnet | Learning & prototyping |
 | 🔵 **Mode 2: Xaman** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing | Mobile-first apps |
-| 🟣 **Mode 3: Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored or exposed directly — keys are reconstructed securely on the client using threshold cryptography | Mainstream users |
+| 🟣 **Mode 3: Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored, they are reconstructed securely on the client using threshold cryptography | Mainstream users |
 
 ## 🚀 Quick Start
 
