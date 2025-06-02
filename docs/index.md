@@ -12,7 +12,7 @@ Welcome to the XRP Genie documentation! This toolkit provides both a CLI tool fo
 npx xrp-genie init my-app
 ```
 
-[🛠️ **View CLI Documentation →**](../README.md)
+[🛠️ **View CLI Documentation →**](cli/)
 
 ### SDK (Add to Existing App)
 ```bash
@@ -27,7 +27,7 @@ const wallet = await genie.connect();
 
 [📦 **View Full SDK Documentation →**](sdk/)
 
-## 📖 Documentation Sections
+## 📖 Documentation
 
 ### 🛠️ Setup Guides
 - [Web3Auth Dashboard Setup](setup/web3auth-dashboard.md) - Complete Web3Auth configuration
