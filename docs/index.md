@@ -9,8 +9,6 @@ Welcome! Build XRPL wallet applications with our CLI tool and SDK.
 
 ### CLI Tool (Create New App)
 ```bash
-git clone https://github.com/zhaben/xrp-genie.git
-cd xrp-genie && npm install
 npx xrp-genie init my-app
 ```
 
@@ -21,15 +19,9 @@ npx xrp-genie init my-app
 npm install xrp-genie-sdk xrpl
 ```
 
-```javascript
-import { XRPGenie } from 'xrp-genie-sdk';
-const genie = XRPGenie.faucet();
-const wallet = await genie.connect();
-```
-
 [📦 **View Full SDK Documentation →**](sdk/)
 
-## 📖 Documentation
+## 📖 Documentation Sectioins
 
 ### 🛠️ Setup Guides
 - [Web3Auth Dashboard Setup](setup/web3auth-dashboard.md) - Complete Web3Auth configuration
