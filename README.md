@@ -1,102 +1,93 @@
-# 🧞‍♂️ XRP Genie - XRPL Wallet CLI & SDK
+# 🧞‍♂️ XRP Genie - USDC Trustline Template
 
-> **📖 [View Full Documentation →](https://zhaben.github.io/xrp-genie/)**
+A Next.js template for managing USDC trustlines on XRPL with Circle integration and wallet creation.
 
-**🧞‍♂️ XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose from three modes and get a production-ready app in seconds.
+## Features
 
-Generate working Next.js/XRPL wallet apps with `npx xrp-genie init`
- 
-Add to any javascript app with `npm i xrp-genie-sdk`
+- 💰 **USDC Trustline Management** - Create and check USDC trustlines on XRPL
+- 🏦 **Circle Integration** - Connect to Circle's USDC faucet for testnet funding
+- 🔐 **Wallet Creation** - Generate and fund new XRPL testnet wallets
+- 📊 **Transaction Tracking** - View transactions on XRPL testnet explorer
+- ⚡ **Built on Next.js 14** - Modern React framework with TypeScript
 
+## Quick Start
 
-We supports three levels of complexity — from test-friendly devnet wallets to advanced account abstraction for the most sophisticated production use cases with mainstream users.
-
----
-
-## 🧠 Modes
-
-| Mode | Description | Best For |
-|------|-------------|----------|
-| 🟢 **Mode 1: Faucet** | Create and manage wallets on the XRPL devnet | Learning & prototyping |
-| 🔵 **Mode 2: Xaman** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing | Mobile-first apps |
-| 🟣 **Mode 3: Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored, they are reconstructed securely on the client using threshold cryptography | Mainstream users |
-
-## 🚀 Quick Start
-
-### 1. Clone and Install
 ```bash
-git clone https://github.com/zhaben/xrp-genie.git xrp-genie
-cd xrp-genie
+# Clone this template
+git clone -b template/usdc-trustline https://github.com/zhaben/xrp-genie.git my-usdc-app
+cd my-usdc-app
+
+# Install dependencies
 npm install
-```
 
-### 2. Generate Your App
-```bash
-npx xrp-genie init
-cd my-wallet-app
-cp .env.local.example .env.local
-```
-
-### 3. Configure API Keys (if needed)
-```bash
-# Edit .env.local with your API keys:
-
-# For Xaman mode:
-XUMM_API_KEY=your_xumm_api_key
-XUMM_API_SECRET=your_xumm_api_secret
-
-# For Web3Auth mode:
-# Replace clientId in hooks/useWeb3AuthWallet.ts
-WEB3AUTH_CLIENT_ID=your-web3auth-client-id
-```
-
-**📖 Need API keys?** See setup guides:
-- [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
-- [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
-
-### 4. Run Your App
-```bash
+# Run development server
 npm run dev
 # Open http://localhost:3000
 ```
 
-## 🔒 Security Best Practices
+## Usage
 
-✅ **What XRP Genie Provides:**
-- 🛡️ **Server-side API keys** - No NEXT_PUBLIC_ exposure
-- 🔐 **Secure API routes** - /api/xumm/* and /api/xrpl/*
-- 🎯 **Environment-based config** - Dynamic network selection
-- 🔑 **MPC key management** - Web3Auth threshold cryptography
-- 📱 **QR-based signing** - No private keys in browser (Xaman mode)
+### Option 1: Create New Wallet
+1. Click "Create & Fund Wallet" to generate a new testnet wallet
+2. The wallet is automatically funded with test XRP
+3. Proceed to create USDC trustline
 
-✅ **Developer Guidelines:**
-- Never commit .env.local files
-- Use provided environment templates
+### Option 2: Use Existing Wallet
+1. Enter your XRPL testnet seed (starts with 's')
+2. Check existing trustlines or create new ones
 
-## 📚 Documentation
+### USDC Funding
+1. After creating a USDC trustline, visit the Circle faucet
+2. Select "XRPL Testnet" as the network
+3. Paste your wallet address to receive test USDC tokens
 
-### Quick Links:
-- 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
+## Key Features
+
+### 🔐 Wallet Management
+- Generate new XRPL testnet wallets with automatic funding
+- Secure seed-based wallet import
+- Real-time balance updates
+
+### 💰 USDC Trustlines
+- One-click trustline creation for Circle's testnet USDC
+- Trustline verification and status checking
+- Transaction success confirmation with explorer links
+
+### 🏦 Circle Integration
+- Direct links to Circle's USDC testnet faucet
+- Seamless token funding workflow
+- Copy-to-clipboard wallet addresses
+
+## Configuration
+
+The template is pre-configured for XRPL testnet and Circle's USDC issuer. To customize:
+
+- Edit `src/utils/xrpl.ts` for XRPL connection settings
+- Modify `components/TrustlineManager.tsx` for UI changes
+- Update USDC issuer configuration in the utilities
+
+## Other XRP Genie Templates
+
+This is part of the XRP Genie toolkit. Other available templates:
+
+- `template/faucet` - Simple XRPL testnet faucet
+- `template/web3auth` - Web3Auth social login template
+- `template/xaman` - Xaman wallet integration template
 
 ## 🛠️ Built With
 
-- [Next.js 15](https://nextjs.org/) - React framework with App Router
+- [Next.js 14](https://nextjs.org/) - React framework
 - [TypeScript](https://www.typescriptlang.org/) - Type-safe development
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling
 - [XRPL.js](https://xrpl.org/) - Official XRP Ledger library
-- [XUMM SDK](https://xumm.readme.io/) - Xaman Wallet integration
-- [Web3Auth](https://web3auth.io/) - Social login & account abstraction
 
-## 🧞 Contribution & Roadmap
+## Documentation
 
-**xrp-genie** is designed to grow. 
+For complete XRP Genie documentation, visit:
+- 📖 [Main Documentation](https://zhaben.github.io/xrp-genie/)
+- 🧞‍♂️ [XRP Genie CLI](https://www.npmjs.com/package/xrp-genie-sdk)
+- 🏦 [Circle USDC Documentation](https://developers.circle.com/)
 
-Planned features: NFT minting, Payment Abstraction, Decentralized AI Agents
+## License
 
-PRs and feature requests are welcome!
-
-🪙 License MIT © 2025 xrp-genie Contributors
-
----
-
-**Need help?** Check the [documentation](https://zhaben.github.io/xrp-genie/) or [open an issue](https://github.com/zhaben/xrp-genie/issues).
+MIT © 2025 XRP Genie Contributors
