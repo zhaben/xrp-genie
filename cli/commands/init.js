@@ -14,7 +14,8 @@ async function initCommand(projectName = 'my-xrp-app') {
       choices: [
         { name: '🟢 Faucet Mode - XRPL Testnet with automatic wallet funding', value: 'faucet' },
         { name: '🔵 Xaman Mode - Connect with Xaman (XUMM) wallet via QR code', value: 'xaman' },
-        { name: '🟣 Web3Auth Mode - Social login with account abstraction', value: 'web3auth' }
+        { name: '🟣 Web3Auth Mode - Social login with account abstraction', value: 'web3auth' },
+        { name: '💰 USDC Trustline - USDC trustline management with Circle integration', value: 'usdc-trustline' }
       ]
     }
   ]);
@@ -70,15 +71,20 @@ async function initCommand(projectName = 'my-xrp-app') {
   console.log(`📁 Scaffolding project in: ${projectPath}\n`);
 
   try {
-    // Copy template excluding node_modules and build artifacts
-    const templatePath = path.join(__dirname, '../../templates', mode);
-    await fs.copy(templatePath, projectPath, {
-      filter: (src) => {
-        const basename = path.basename(src);
-        // Exclude node_modules, .next, and other build artifacts
-        return !['node_modules', '.next', 'dist', 'build', '.git'].includes(basename);
-      }
+    // Clone template from specific branch
+    console.log(`📥 Downloading ${mode} template...`);
+    const repoUrl = 'https://github.com/zhaben/xrp-genie.git';
+    const branchName = `template/${mode}`;
+    
+    // Clone the specific template branch
+    execSync(`git clone -b ${branchName} --depth 1 ${repoUrl} "${projectPath}"`, { 
+      stdio: 'pipe' // Hide git output for cleaner CLI experience
     });
+    
+    // Remove .git directory to clean up
+    await fs.remove(path.join(projectPath, '.git'));
+    
+    console.log(`✅ Template downloaded successfully!`);
 
     // Copy .env.local.example to .env.local
     const envExamplePath = path.join(projectPath, '.env.local.example');
@@ -135,7 +141,8 @@ function getModeDescription(mode) {
   const descriptions = {
     faucet: 'Faucet Mode',
     xaman: 'Xaman Mode', 
-    web3auth: 'Web3Auth Mode'
+    web3auth: 'Web3Auth Mode',
+    'usdc-trustline': 'USDC Trustline Mode'
   };
   return descriptions[mode];
 }

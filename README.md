@@ -17,24 +17,33 @@ We supports three levels of complexity — from test-friendly devnet wallets to 
 
 | Mode | Description | Best For |
 |------|-------------|----------|
-| 🟢 **Mode 1: Faucet** | Create and manage wallets on the XRPL devnet | Learning & prototyping |
-| 🔵 **Mode 2: Xaman** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing | Mobile-first apps |
-| 🟣 **Mode 3: Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored, they are reconstructed securely on the client using threshold cryptography | Mainstream users |
+| 🟢 **Faucet** | Create and manage wallets on the XRPL devnet | Learning & prototyping |
+| 🔵 **Xaman** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing | Mobile-first apps |
+| 🟣 **Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored, they are reconstructed securely on the client using threshold cryptography | Mainstream users |
+| 💰 **USDC Trustline** | USDC trustline management with Circle integration and faucet | USDC/stablecoin apps |
 
 ## 🚀 Quick Start
 
-### 1. Clone and Install
+### Option 1: Use CLI (Recommended)
 ```bash
-git clone https://github.com/zhaben/xrp-genie.git xrp-genie
-cd xrp-genie
-npm install
+# Install globally
+npm install -g xrp-genie-sdk
+
+# Generate your app (templates downloaded on-demand)
+npx xrp-genie init my-wallet-app
+cd my-wallet-app
 ```
 
-### 2. Generate Your App
+### Option 2: Clone Specific Template
 ```bash
-npx xrp-genie init
-cd my-wallet-app
-cp .env.local.example .env.local
+# Clone only the template you need
+git clone -b template/faucet https://github.com/zhaben/xrp-genie.git my-faucet-app
+git clone -b template/web3auth https://github.com/zhaben/xrp-genie.git my-web3auth-app
+git clone -b template/xaman https://github.com/zhaben/xrp-genie.git my-xaman-app
+git clone -b template/usdc-trustline https://github.com/zhaben/xrp-genie.git my-usdc-app
+
+cd my-app
+npm install
 ```
 
 ### 3. Configure API Keys (if needed)

@@ -1,17 +1,23 @@
 {
   "name": "xrp-genie",
-  "version": "1.0.0",
-  "description": "XRPL Wallet Boilerplate with CLI for Next.js App Router",
+  "version": "1.1.0",
+  "description": "XRPL Wallet Boilerplate with CLI for Next.js App Router - Templates fetched on-demand",
   "main": "sdk/index.js",
   "bin": {
     "xrp-genie": "./cli/bin/xrp-genie"
   },
+  "files": [
+    "cli/",
+    "sdk/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "npm run build:sdk && npm run build:cli",
     "build:sdk": "tsc -p sdk/tsconfig.json",
     "build:cli": "chmod +x cli/bin/xrp-genie"
   },
-  "keywords": ["xrp", "xrpl", "wallet", "web3auth", "xaman", "nextjs"],
+  "keywords": ["xrp", "xrpl", "wallet", "web3auth", "xaman", "nextjs", "usdc", "trustline"],
   "author": "XRP Genie Contributors",
   "license": "MIT",
   "dependencies": {
