@@ -1,111 +1,111 @@
-# 🧞‍♂️ XRP Genie - XRPL Wallet CLI & SDK
+# 🧞‍♂️ XRP Genie - Web3Auth Template
 
-> **📖 [View Full Documentation →](https://zhaben.github.io/xrp-genie/)**
+A Next.js template for XRPL applications with Web3Auth social login and MPC wallet security.
 
-**🧞‍♂️ XRP Genie** is a CLI tool and SDK for rapidly scaffolding XRPL wallet applications. Choose from three modes and get a production-ready app in seconds.
+## Features
 
-Generate working Next.js/XRPL wallet apps with `npx xrp-genie init`
- 
-Add to any javascript app with `npm i xrp-genie-sdk`
+- 🔐 **Social Login** - Google, Facebook, Twitter, Discord and more
+- 🛡️ **MPC Security** - Multi-party computation for private key management
+- 🔑 **Account Abstraction** - Mainstream user-friendly experience
+- 📱 **Responsive Design** - Mobile-first with Tailwind CSS
+- ⚡ **Built on Next.js 14** - Modern React framework with TypeScript
 
+## Quick Start
 
-We supports three levels of complexity — from test-friendly devnet wallets to advanced account abstraction for the most sophisticated production use cases with mainstream users.
-
----
-
-## 🧠 Modes
-
-| Mode | Description | Best For |
-|------|-------------|----------|
-| 🟢 **Faucet** | Create and manage wallets on the XRPL devnet | Learning & prototyping |
-| 🔵 **Xaman** | Authenticate users with Xaman (XUMM) Wallet using QR login and transaction signing | Mobile-first apps |
-| 🟣 **Web3Auth** | Authenticate via social login and securely manage private keys with MPC. No private key is ever stored, they are reconstructed securely on the client using threshold cryptography | Mainstream users |
-| 💰 **USDC Trustline** | USDC trustline management with Circle integration and faucet | USDC/stablecoin apps |
-
-## 🚀 Quick Start
-
-### Option 1: Use CLI (Recommended)
 ```bash
-# Install globally
-npm install -g xrp-genie-sdk
-
-# Generate your app (templates downloaded on-demand)
-npx xrp-genie init my-wallet-app
-cd my-wallet-app
-```
-
-### Option 2: Clone Specific Template
-```bash
-# Clone only the template you need
-git clone -b template/faucet https://github.com/zhaben/xrp-genie.git my-faucet-app
+# Clone this template
 git clone -b template/web3auth https://github.com/zhaben/xrp-genie.git my-web3auth-app
-git clone -b template/xaman https://github.com/zhaben/xrp-genie.git my-xaman-app
-git clone -b template/usdc-trustline https://github.com/zhaben/xrp-genie.git my-usdc-app
+cd my-web3auth-app
 
-cd my-app
+# Install dependencies
 npm install
-```
 
-### 3. Configure API Keys (if needed)
-```bash
-# Edit .env.local with your API keys:
+# Configure Web3Auth
+cp .env.local.example .env.local
+# Edit .env.local with your Web3Auth Client ID
 
-# For Xaman mode:
-XUMM_API_KEY=your_xumm_api_key
-XUMM_API_SECRET=your_xumm_api_secret
-
-# For Web3Auth mode:
-# Replace clientId in hooks/useWeb3AuthWallet.ts
-WEB3AUTH_CLIENT_ID=your-web3auth-client-id
-```
-
-**📖 Need API keys?** See setup guides:
-- [Xaman Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/xaman-dashboard)
-- [Web3Auth Dashboard Setup](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
-
-### 4. Run Your App
-```bash
+# Run development server
 npm run dev
 # Open http://localhost:3000
 ```
 
-## 🔒 Security Best Practices
+## Setup Guide
 
-✅ **What XRP Genie Provides:**
-- 🛡️ **Server-side API keys** - No NEXT_PUBLIC_ exposure
-- 🔐 **Secure API routes** - /api/xumm/* and /api/xrpl/*
-- 🎯 **Environment-based config** - Dynamic network selection
-- 🔑 **MPC key management** - Web3Auth threshold cryptography
-- 📱 **QR-based signing** - No private keys in browser (Xaman mode)
+### 1. Get Web3Auth Client ID
 
-✅ **Developer Guidelines:**
-- Never commit .env.local files
-- Use provided environment templates
+1. Visit [Web3Auth Dashboard](https://dashboard.web3auth.io)
+2. Create a new project
+3. Copy your Client ID
+4. Add your domain to allowed origins
 
-## 📚 Documentation
+### 2. Configure Environment
 
-### Quick Links:
-- 🛠️ [Developer Environment](https://zhaben.github.io/xrp-genie/setup/developer-environment)
+```bash
+# Edit .env.local
+WEB3AUTH_CLIENT_ID=your-web3auth-client-id
+```
+
+### 3. Update Client ID in Code
+
+Edit `hooks/useWeb3AuthWallet.ts` and replace the clientId with your Web3Auth Client ID.
+
+## Usage
+
+1. Visit `http://localhost:3000`
+2. Click "Login with Social" to authenticate via Web3Auth
+3. Choose your preferred social provider (Google, Facebook, etc.)
+4. Your XRPL wallet is automatically created using MPC
+5. Send and receive transactions on XRPL testnet or mainnet
+
+## Key Features
+
+### 🔐 Social Authentication
+- Login with Google, Facebook, Twitter, Discord, GitHub
+- No need to manage private keys manually
+- Familiar user experience for mainstream users
+
+### 🛡️ MPC Wallet Security
+- Private keys are never stored anywhere
+- Keys are reconstructed using threshold cryptography
+- Web3Auth's enterprise-grade security
+
+### 📱 XRPL Integration
+- Full XRPL testnet and mainnet support
+- Send and receive XRP and tokens
+- Account information and transaction history
+
+## Configuration
+
+The template is pre-configured for XRPL testnet. To customize:
+
+- Edit `hooks/useWeb3AuthWallet.ts` for Web3Auth and XRPL logic
+- Modify `app/page.tsx` for UI changes
+- Update styling in `app/globals.css`
+- Configure network in the wallet hook
+
+## Other XRP Genie Templates
+
+This is part of the XRP Genie toolkit. Other available templates:
+
+- `template/faucet` - Simple XRPL testnet faucet
+- `template/xaman` - Xaman wallet integration template
+- `template/usdc-trustline` - USDC trustline management template
 
 ## 🛠️ Built With
 
-- [Next.js 15](https://nextjs.org/) - React framework with App Router
+- [Next.js 14](https://nextjs.org/) - React framework
 - [TypeScript](https://www.typescriptlang.org/) - Type-safe development
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling
 - [XRPL.js](https://xrpl.org/) - Official XRP Ledger library
-- [XUMM SDK](https://xumm.readme.io/) - Xaman Wallet integration
 - [Web3Auth](https://web3auth.io/) - Social login & account abstraction
 
-## 🧞 Contribution & Roadmap
+## Documentation
 
-**xrp-genie** is designed to grow. 
+For complete XRP Genie documentation, visit:
+- 📖 [Main Documentation](https://zhaben.github.io/xrp-genie/)
+- 🧞‍♂️ [XRP Genie CLI](https://www.npmjs.com/package/xrp-genie-sdk)
+- 🔐 [Web3Auth Setup Guide](https://zhaben.github.io/xrp-genie/setup/web3auth-dashboard)
 
-Planned features: NFT minting, Payment Abstraction, Decentralized AI Agents
+## License
 
-PRs and feature requests are welcome!
-
-🪙 License MIT © 2025 xrp-genie Contributors
-
----
-
-**Need help?** Check the [documentation](https://zhaben.github.io/xrp-genie/) or [open an issue](https://github.com/zhaben/xrp-genie/issues).
+MIT © 2025 XRP Genie Contributors

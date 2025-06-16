@@ -1,37 +1,31 @@
 {
-  "name": "xrp-genie",
-  "version": "1.1.0",
-  "description": "XRPL Wallet Boilerplate with CLI for Next.js App Router - Templates fetched on-demand",
-  "main": "sdk/index.js",
-  "bin": {
-    "xrp-genie": "./cli/bin/xrp-genie"
-  },
-  "files": [
-    "cli/",
-    "sdk/",
-    "README.md",
-    "LICENSE"
-  ],
+  "name": "xrp-genie-web3auth",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "npm run build:sdk && npm run build:cli",
-    "build:sdk": "tsc -p sdk/tsconfig.json",
-    "build:cli": "chmod +x cli/bin/xrp-genie"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": ["xrp", "xrpl", "wallet", "web3auth", "xaman", "nextjs", "usdc", "trustline"],
-  "author": "XRP Genie Contributors",
-  "license": "MIT",
   "dependencies": {
-    "commander": "^9.0.0",
-    "inquirer": "^8.0.0",
-    "fs-extra": "^11.0.0"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "^15",
+    "xrpl": "^2.7.0",
+    "@web3auth/base": "^9.7.0",
+    "@web3auth/modal": "^9.7.0",
+    "@web3auth/auth-adapter": "^9.7.0",
+    "@web3auth/xrpl-provider": "^9.7.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0"
-  },
-  "peerDependencies": {
-    "react": ">=18.0.0",
-    "next": ">=13.0.0",
-    "xrpl": ">=3.0.0"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.0",
+    "eslint": "^8",
+    "eslint-config-next": "15.3.3"
   }
 }
