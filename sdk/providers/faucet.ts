@@ -6,10 +6,16 @@ export class FaucetProvider implements IWalletProvider {
   private wallet: Wallet | null = null;
   private isClientConnected = false;
 
-  constructor(private network: 'testnet' | 'mainnet' = 'testnet') {
-    const rpcUrl = network === 'mainnet' 
-      ? 'wss://xrplcluster.com'
-      : 'wss://s.altnet.rippletest.net:51233';
+  constructor(private network: 'testnet' | 'mainnet' | 'devnet' = 'testnet') {
+    let rpcUrl: string;
+    
+    if (network === 'mainnet') {
+      rpcUrl = 'wss://xrplcluster.com';
+    } else if (network === 'devnet') {
+      rpcUrl = 'wss://s.devnet.rippletest.net:51233';
+    } else {
+      rpcUrl = 'wss://s.altnet.rippletest.net:51233'; // testnet
+    }
     
     this.client = new Client(rpcUrl);
   }
@@ -148,8 +154,8 @@ export class FaucetProvider implements IWalletProvider {
       throw new Error('Wallet not connected');
     }
 
-    if (this.network !== 'testnet') {
-      throw new Error('Funding only available on testnet');
+    if (this.network === 'mainnet') {
+      throw new Error('Funding not available on mainnet');
     }
 
     await this.ensureConnected();

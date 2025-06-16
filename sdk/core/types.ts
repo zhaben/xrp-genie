@@ -27,7 +27,7 @@ export type WalletProvider = 'web3auth' | 'xaman' | 'faucet';
 
 export interface XRPGenieConfig {
   provider: WalletProvider;
-  network: 'testnet' | 'mainnet';
+  network: 'testnet' | 'mainnet' | 'devnet';
   rpcUrl?: string;
   web3auth?: {
     clientId: string;

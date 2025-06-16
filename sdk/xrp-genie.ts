@@ -21,7 +21,7 @@ export class XRPGenie {
         return new Web3AuthProvider(
           config.web3auth.clientId,
           config.web3auth.environment,
-          config.network
+          config.network === 'devnet' ? 'testnet' : config.network // Web3Auth doesn't support devnet, use testnet
         );
 
       case 'xaman':
@@ -31,7 +31,7 @@ export class XRPGenie {
         return new XamanProvider(
           config.xaman.apiKey,
           config.xaman.apiSecret,
-          config.network
+          config.network === 'devnet' ? 'testnet' : config.network // Xaman doesn't support devnet, use testnet
         );
 
       case 'faucet':
@@ -190,7 +190,7 @@ export class XRPGenie {
   }
 
   static faucet(config: {
-    network?: 'testnet' | 'mainnet';
+    network?: 'testnet' | 'mainnet' | 'devnet';
   } = {}) {
     return new XRPGenie({
       provider: 'faucet',
